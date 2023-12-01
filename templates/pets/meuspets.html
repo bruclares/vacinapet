@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Log In{% endblock %}
+
+{% block content %}    
+    <main class="container">
+        <!-- <h1 class="titulo">VacinaPet</h1> -->
+        <h2 class="titulo">Meus Pets</h2>
+        <section>
+            <form class="inline" action="">
+                <input class="form-control" type="text">
+            </form>
+            <button class="btn">Buscar o Pet</button>
+        <div>  
+            <button class="btn">Novo Pet</button>
+        </div>
+        </section>
+        <table class="tabela">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Espécie</th>
+                    <th>Gênero</th>
+                    <th>Peso</th>
+                    <th>Idade</th>
+                    <th>Castrado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if pets %}
+                    {% for pet in pets %}     
+                        <tr>
+                            <td>{{ pet[2] }}</td>
+                            <td>{{ pet[3] }}</td>
+                            <td>{{ 'Macho' if pet[4] == 'M' else 'Fêmea' }}</td>
+                            <td>{{ pet[5] }}</td>
+                            <td>{{ pet[6] }}</td>
+                            <td>{{ 'Sim' if pet[7] else 'Não'  }}</td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td class="text-center" colspan="6">
+                            Você não tem pets. Você pode <a href="{{ url_for('pets.criar') }}">Cadastrar um pet</a>
+                        </td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </main>
+{% endblock %}

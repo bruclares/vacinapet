@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+.titulo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color:#49274a;
+    font-size: 3em;
+    padding: 10px;
+
+}
+
+.form {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.1em;
+    
+}
+
+body {
+    background: #f4decb;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: #864a3f;
+    height: 100vh;
+    margin: 0;
+}
+
+.center {
+    display: grid;
+    place-items: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.form-control {
+    display: block;
+    border-radius: 7px;
+    padding: 5px 15px;
+    border: 1px solid #49274a;
+    background-color: #f4decb;
+    width: 100% ;
+    font-family: 'Poppins', sans-serif;
+    color: #864a3f;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    width: 300px;
+}
+
+.form-label {
+    display: block;
+}
+    
+.link {
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color:#49274a;
+    font-size: 1.5em;
+}
+
+.tabela {
+    width: 100%;
+}
+
+td {
+    padding: 10px;
+}
+th {
+    background-color: #864a3f;
+    color: #ffffff;
+    text-align: left;
+    border-spacing: 10px 1em;
+    padding: 10px;
+}
+
+tr {
+    background-color: cornsilk; 
+}
+
+section {
+    display: flex;
+    gap: 20px;
+}
+
+.container {
+    padding: 0 100px;
+}
+
+.navbar {
+    display: inline;
+    
+    width: 100%;
+    height: 80%;
+}
+
+.logo {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.nav-item {
+    /* display: inline-block; */
+    float: right;
+    
+}
+
+a, span, .logo {
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color:#49274a;
+    font-size: 1.5em;
+    padding: 10px;
+}
+
+.btn {
+    text-wrap: nowrap;
+    /* width: 50%; */
+    margin-bottom: 5px;
+    border-radius: 10px;
+    padding: 10px 15px;
+    border: 1px solid #49274a;
+    background-color: #49274a;
+    color: #fff;
+    font-size: 1em;
+    transition: 0.1s;
+}
+
+.btn:hover {
+    color: #864a3f;
+    background-color: #f4decb;
+}
+
+.btn-group {
+    margin-top: 40px;
+}
+
+.w100 {
+    width: 100%;
+}
+
+.inline {
+    display: inline;
+}
+

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Cadastre seu Pet{% endblock %}
+
+{% block content %}
+    <main class="center">
+        <h1 class="titulo">VacinaPet</h1>
+    {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+    {% endfor %}
+    <form class="form" method="POST">
+        <div class="form-group">
+            <label class="form-label" for="tx-nome">Nome</label>
+            <input class="form-control" type="text" name="nome" id="tx-nome">
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="tx-especie">Espécie</label>
+            <input class="form-control" type="text" name="especie" id="tx-especie">
+        </div>
+      
+        <div class="form-group">
+            <label class="form-label" for="tx-peso">Peso</label>
+            <input class="form-control" type="text" name="peso" id="tx-peso">
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="tx-idade">Idade</label>
+            <input class="form-control" type="text" name="idade" id="tx-idade">
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="genero">Gênero</label>
+            <select class="form-control" name="genero" id="genero">
+                <option value="M">Macho</option>
+                <option value="F">Fêmea</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" name="castrado" id="castrado">
+            <label for="castrado">Meu pet é castrado!</label>
+        </div>
+        <div class="btn-group">
+            <button class="btn w100">Cadastrar</button>
+        </div>
+    </main>
+{% endblock %}
+</html>

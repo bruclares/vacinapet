@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Registre-se{% endblock %}
+
+{% block content %}
+    <main class="center">
+        <h1 class="titulo">VacinaPet</h1>
+    {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+    {% endfor %}
+    <form action="/register" class="form" method="POST">
+        <div class="form-group">
+            <label class="form-label" for="tx-nome">Nome</label>
+            <input class="form-control" type="text" name="nome" id="tx-nome">
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="tx-tel">Telefone</label>
+            <input class="form-control" type="text" name="telefone" id="tx-tel">
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="tx-email">E-mail</label>
+            <input class="form-control" type="email" name="email" id="tx-email">
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="tx-senha">Senha</label>
+            <input class="form-control" type="password" name="senha" id="tx-senha">
+        </div>
+        <div class="btn-group">
+            <button class="btn w100">Cadastre-se</button>
+        </div>
+    </form>
+    <p>Já tem uma conta?</p>
+    <a class="link" href="/">Login</a>
+    </main>
+{% endblock %}
+</html>
