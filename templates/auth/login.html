@@ -4,27 +4,30 @@
 
 {% block content %}
 
-    <main class="center">
-        <h1 class="titulo">VacinaPet</h1>
-    {% for message in get_flashed_messages() %}
-        <div class="flash">{{ message }}</div>
-    {% endfor %}
-    <form class="form" method="POST">
-        <div class="form-group">
-            <label class="form-label" for="tx-email">E-mail</label>
-            <input class="form-control" type="email" name="email" id="tx-email">
-        </div>
-        <div class="form-group">
-            <label class="form-label" for="tx-senha">Senha</label>
-            <input class="form-control" type="password" name="senha" id="tx-senha">
-        </div>
-        <div class="btn-group">
-            <button class="btn w100">Log in</button>
-        </div>
-    </form>
-    <p>Quer cuidar da saúde do seu pet?</p>
-    <a class="link" href="/register">Crie sua conta!</a>
-    </main>
+<div class="row vh-100 justify-content-center align-items-center">
+    <div class="col-md-4 col-12">
+        <h1 class="display-3 text-center mb-5 fw-bold text-primary">VacinaPet</h1>
+        {% for message in get_flashed_messages() %}
+            <div class="alert">{{ message }}</div>
+        {% endfor %}
+        <form method="POST" class="mb-5">
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
+                <label for="email">E-mail</label>
+            </div>
+            <div class="form-floating mb-4">
+                <input type="password" class="form-control" name="senha" id="senha" placeholder="password">
+                <label for="senha">Senha</label>
+            </div>
+            <div class="d-grid mb-3">
+                <button class="btn btn-primary">Login</button>
+            </div>
+        </form>
+        <p class="text-center">
+            Quer cuidar da saúde do seu pet? <a class="text-decoration-none fw-bold" href="{{url_for('auth.register')}}">Crie sua conta!</a>
+        </p>
+    </div>
+    
+</div>
 
 {% endblock %}
-</html>

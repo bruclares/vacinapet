@@ -1,5 +1,11 @@
 .venv/
 
+node_modules
+package-lock.json
+package.json
+static/style.css.map
+static/style.scss
+
 *.pyc
 __pycache__/
 

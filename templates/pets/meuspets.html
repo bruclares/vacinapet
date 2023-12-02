@@ -1,21 +1,24 @@
 {% extends 'base.html' %}
 
-{% block title %}Log In{% endblock %}
+{% block title %}Meus Pets{% endblock %}
 
 {% block content %}    
-    <main class="container">
-        <!-- <h1 class="titulo">VacinaPet</h1> -->
-        <h2 class="titulo">Meus Pets</h2>
-        <section>
-            <form class="inline" action="">
-                <input class="form-control" type="text">
+    <h2 class="mb-5">Meus Pets</h2>
+    <nav class="navbar navbar-expand-lg mb-3">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" name="search" aria-label="Search">
+            <button class="btn btn-primary" type="submit">Buscar</button>
             </form>
-            <button class="btn">Buscar o Pet</button>
-        <div>  
-            <button class="btn">Novo Pet</button>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a class="btn btn-primary" aria-current="page" href="{{ url_for('pets.criar') }}">Novo pet</a>
+                </li>
+            </ul>
         </div>
-        </section>
-        <table class="tabela">
+    </nav>
+    <div class="table-responsive">
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th>Nome</th>
@@ -47,5 +50,5 @@
                 {% endif %}
             </tbody>
         </table>
-    </main>
+    </div>
 {% endblock %}

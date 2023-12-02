@@ -1,36 +1,41 @@
 {% extends 'base.html' %}
 
-{% block title %}Registre-se{% endblock %}
+{% block title %}Log In{% endblock %}
 
 {% block content %}
-    <main class="center">
-        <h1 class="titulo">VacinaPet</h1>
-    {% for message in get_flashed_messages() %}
-        <div class="flash">{{ message }}</div>
-    {% endfor %}
-    <form action="/register" class="form" method="POST">
-        <div class="form-group">
-            <label class="form-label" for="tx-nome">Nome</label>
-            <input class="form-control" type="text" name="nome" id="tx-nome">
-        </div>
-        <div class="form-group">
-            <label class="form-label" for="tx-tel">Telefone</label>
-            <input class="form-control" type="text" name="telefone" id="tx-tel">
-        </div>
-        <div class="form-group">
-            <label class="form-label" for="tx-email">E-mail</label>
-            <input class="form-control" type="email" name="email" id="tx-email">
-        </div>
-        <div class="form-group">
-            <label class="form-label" for="tx-senha">Senha</label>
-            <input class="form-control" type="password" name="senha" id="tx-senha">
-        </div>
-        <div class="btn-group">
-            <button class="btn w100">Cadastre-se</button>
-        </div>
-    </form>
-    <p>Já tem uma conta?</p>
-    <a class="link" href="/">Login</a>
-    </main>
+
+<div class="row vh-100 justify-content-center align-items-center">
+    <div class="col-md-4 col-12">
+        <h1 class="display-3 text-center mb-5 fw-bold text-primary">VacinaPet</h1>
+        {% for message in get_flashed_messages() %}
+            <div class="alert">{{ message }}</div>
+        {% endfor %}
+        <form method="POST" class="mb-5">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" name="nome" id="nome" placeholder="nome">
+                <label for="nome">Nome</label>
+            </div>
+            <div class="form-floating mb-4">
+                <input type="text" class="form-control" name="telefone" id="telefone" placeholder="telefone">
+                <label for="telefone">Telefone</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
+                <label for="email">E-mail</label>
+            </div>
+            <div class="form-floating mb-4">
+                <input type="password" class="form-control" name="senha" id="senha" placeholder="password">
+                <label for="senha">Senha</label>
+            </div>
+            <div class="d-grid mb-3">
+                <button class="btn btn-primary">Registrar</button>
+            </div>
+        </form>
+        <p class="text-center">
+            Já tem uma conta? <a class="text-decoration-none fw-bold" href="{{url_for('auth.login')}}">Faça seu login.</a>
+        </p>
+    </div>
+    
+</div>
+
 {% endblock %}
-</html>
