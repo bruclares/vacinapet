@@ -7,8 +7,8 @@
     <nav class="navbar navbar-expand-lg mb-3">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" name="search" aria-label="Search">
-            <button class="btn btn-primary" type="submit">Buscar</button>
+                <input class="form-control me-2" type="search" name="search" aria-label="Search">
+                <button class="btn btn-primary" type="submit">Buscar</button>
             </form>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
@@ -21,12 +21,13 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Nome</th>
-                    <th>Espécie</th>
-                    <th>Gênero</th>
-                    <th>Peso</th>
-                    <th>Idade</th>
-                    <th>Castrado</th>
+                    <th class="bg-primary bg-opacity-10">Nome</th>
+                    <th class="bg-primary bg-opacity-10">Espécie</th>
+                    <th class="bg-primary bg-opacity-10">Gênero</th>
+                    <th class="bg-primary bg-opacity-10">Peso</th>
+                    <th class="bg-primary bg-opacity-10">Idade</th>
+                    <th class="bg-primary bg-opacity-10">Castrado</th>
+                    <th class="bg-primary bg-opacity-10">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,12 +40,23 @@
                             <td>{{ pet[5] }}</td>
                             <td>{{ pet[6] }}</td>
                             <td>{{ 'Sim' if pet[7] else 'Não'  }}</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-sm fw-bold" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        . . .
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" href="{{ url_for('pets.alterar', id=pet[0])}}" role="button">Editar</a>                                      </li>
+                                      <li><a class="dropdown-item" href="{{ url_for('pets.excluir', id=pet[0])}}" role="button">Excluir</a></li>
+                                    </ul>
+                                </div>
+                            </td>
                         </tr>
                     {% endfor %}
                 {% else %}
                     <tr>
                         <td class="text-center" colspan="6">
-                            Você não tem pets. Você pode <a href="{{ url_for('pets.criar') }}">Cadastrar um pet</a>
+                            Você não tem pets. Você pode <a class="text-decoration-none fw-bold" href="{{ url_for('pets.criar') }}">Cadastrar um pet</a>
                         </td>
                     </tr>
                 {% endif %}

@@ -28,5 +28,9 @@
       </nav>
     {% endif %}
     {% block content %} {% endblock %}
+    {% if g.tutor %}
+      <script src="{{ url_for('static', filename='bootstrap.bundle.js') }}"></script>
+    {% endif %}
+    {% block scripts %} {% endblock %}
 </body>
 </html>

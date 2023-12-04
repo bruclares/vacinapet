@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Meus Pets{% endblock %}
+
+{% block content %}    
+    <h2 class="mb-5">Vacinas</h2>
+    <nav class="navbar navbar-expand-lg mb-3">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" name="search" aria-label="Search">
+            <button class="btn btn-primary" type="submit">Vacina</button>
+            </form>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a class="btn btn-primary" aria-current="page" href="{{ url_for('pets.vacinas') }}">Nova vacina</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="bg-primary bg-opacity-10">Vacina</th>
+                    <th class="bg-primary bg-opacity-10">Lote</th>
+                    <th class="bg-primary bg-opacity-10">Data da Vacinação</th>
+                    <th class="bg-primary bg-opacity-10">Próxima Dose</th>
+                </tr>
+            </thead>
+            <tbody>
+                        <tr>
+                            <td>
+                                <form>
+                                    <select name="" id="">
+                                        op
+                                    </select>
+                                </form>
+                            </td>
+                            <td>{{ pet[3] }}</td>
+                            <td>{{ 'Macho' if pet[4] == 'M' else 'Fêmea' }}</td>
+                            <td>{{ pet[5] }}</td>
+                            <td>{{ pet[6] }}</td>
+                            <td>{{ 'Sim' if pet[7] else 'Não'  }}</td>
+                            <td>
+                                <ul>
+                                    <li><a href="{{ url_for('pets.alterar', id=pet[0])}}">Editar</a></li>
+                                    <li>
+                                        <a href="{{ url_for('pets.excluir', id=pet[0])}}">Excluir</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td class="text-center" colspan="6">
+                            Você não tem pets. Você pode <a class="text-decoration-none fw-bold" href="{{ url_for('pets.criar') }}">Cadastrar um pet</a>
+                        </td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -11860,8 +11860,12 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-.custom-primary {
-  background-color: #fbf3ed;
+.my-table-header {
+  background-color: gray;
+}
+
+.color {
+  color: #f4decb;
 }
 
 /*# sourceMappingURL=style.css.map */

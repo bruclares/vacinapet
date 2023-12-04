@@ -5,13 +5,13 @@ def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(SECRET_KEY='dev')
 
-    from . import db
+    from .database import db
     db.init_app(app)
 
-    from . import auth
+    from .controllers import auth
     app.register_blueprint(auth.bp)
 
-    from . import pets
+    from .controllers import pets
     app.register_blueprint(pets.bp)
 
     return app

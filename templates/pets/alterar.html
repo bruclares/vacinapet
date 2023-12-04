@@ -11,45 +11,45 @@
         <form method="POST" class="row gx-md-5 mb-3" class="mb-5">
             <div class="col-md-6 col-12">
                 <div class="form-floating col-12 mb-3">
-                <input type="text" class="form-control" name="nome" id="nome" placeholder="nome">
+                <input value="{{ pet[2] }}" type="text" class="form-control" name="nome" id="nome" placeholder="nome">
                 <label for="nome">Nome</label>
             </div>
             </div>
             <div class="col-md-6 col-12">
                 <div class="form-floating col-12 mb-3">
-                <input type="text" class="form-control" name="especie" id="especie" placeholder="especie">
+                <input value="{{ pet[3] }}" type="text" class="form-control" name="especie" id="especie" placeholder="especie">
                 <label for="especie">Espécie</label>
             </div>
             </div>
             <div class="col-md-6 col-12">
                 <div class="form-floating col-12 mb-3">
-                <input type="number" class="form-control" name="peso" id="peso" placeholder="peso">
+                <input value="{{ pet[5] }}" type="number" class="form-control" name="peso" id="peso" placeholder="peso">
                 <label for="peso">Peso</label>
             </div>
             </div>
             <div class="col-md-6 col-12">
                 <div class="form-floating col-12 mb-3">
-                <input type="number" class="form-control" name="idade" id="idade" placeholder="idade">
+                <input value="{{ pet[6] }}" type="number" class="form-control" name="idade" id="idade" placeholder="idade">
                 <label for="idade">Idade</label>
             </div>
             </div>
             <div class="col-md-6 col-12">
                 <div class="form-floating mb-3">
                     <select class="form-select" name="genero" id="genero" aria-label="Floating label de genero">
-                      <option value="F" selected>Fêmea</option>
-                      <option value="M">Macho</option>
+                      <option value="F" {% if pet[4] == 'F' %} selected {% endif %}>Fêmea</option>
+                      <option value="M" {% if pet[4] == 'M' %} selected {% endif %}>Macho</option>
                     </select>
                     <label for="genero">Gênero</label>
                 </div>
             </div>
             <div class="col-12">
                 <div class="form-check form-switch mb-5">
-                    <input class="form-check-input border border-secondary" name="castrado" type="checkbox" role="switch" id="castrado">
+                    <input {% if pet[7] %} checked {% endif %} class="form-check-input border border-secondary" name="castrado" type="checkbox" role="switch" id="castrado">
                     <label class="form-check-label" for="castrado">Meu pet é castrado</label>
                 </div>
             </div>
             <div class="d-grid d-md-block">
-                <button class="btn btn-primary">Incluir</button>
+                <button class="btn btn-primary">Alterar</button>
             </div>
         </form>
 
