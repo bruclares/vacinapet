@@ -1,41 +1,41 @@
 {% extends 'base.html' %}
 
-{% block title %}Nova Vacina{% endblock %}
+{% block title %}Alterar Vacina{% endblock %}
 
 {% block content %}
 
-        <h1 class="mb-5">Nova vacina</h1>
+        <h1 class="mb-5">Alterar vacina</h1>
         {% for message in get_flashed_messages() %}
         <div class="alert alert-danger">{{ message }}</div>
         {% endfor %}
         <form method="POST" class="row gx-md-5 mb-3" class="mb-5">
             <div class="col-md-6 col-12">
                 <div class="form-floating col-12 mb-3">
-                <input type="text" class="form-control" name="nome" id="nome" placeholder="nome">
+                <input value="{{vacina[2]}}" type="text" class="form-control" name="nome" id="nome" placeholder="nome">
                 <label for="nome">Nome</label>
             </div>
             </div>
             <div class="col-md-6 col-12">
                 <div class="form-floating col-12 mb-3">
-                <input type="number" class="form-control" name="lote" id="lote" placeholder="lote">
+                <input value="{{vacina[5]}}" type="number" class="form-control" name="lote" id="lote" placeholder="lote">
                 <label for="lote">Lote</label>
             </div>
             </div>
             <div class="col-md-6 col-12">
                 <div class="form-floating col-12 mb-3">
-                <input type="date" class="form-control" name="data_aplicacao" id="data_aplicacao" placeholder="data_aplicacao">
+                <input value="{{vacina[3]}}" type="date" class="form-control" name="data_aplicacao" id="data_aplicacao" placeholder="data_aplicacao">
                 <label for="data_aplicacao">Data aplicação</label>
             </div>
             </div>
             <div class="col-md-6 col-12">
                 <div class="form-floating col-12 mb-3">
-                <input type="date" class="form-control" name="data_reforco" id="data_reforco" placeholder="data_reforco">
+                <input value="{{vacina[4]}}" type="date" class="form-control" name="data_reforco" id="data_reforco" placeholder="data_reforco">
                 <label for="data_reforco">Data reforço</label>
             </div>
             </div>
 
             <div class="d-grid d-md-block">
-                <button class="btn btn-primary">Incluir</button>
+                <button class="btn btn-primary">Alterar</button>
             </div>
         </form>
 

@@ -18,8 +18,7 @@ def lista():
     if busca:
         query += ' and nome ilike %s'
         parameters += ('%' + (busca if busca else '') + '%',)
-        print(parameters)
-
+      
     with get_db() as conn:
         with conn.cursor() as curs:
             curs.execute(
@@ -27,7 +26,10 @@ def lista():
                 parameters
             )
             pets = curs.fetchall()
-
+    
+    if busca and not pets:
+        pets = 'Nenhum pet encontrado...'
+    
     return render_template('pets/meuspets.html', pets=pets)
 
 
@@ -47,16 +49,12 @@ def criar():
 
         if not nome:
             error = 'O nome é obrigatório.'
-            flash(error)
         elif not especie:
             error = 'A espécie é obrigatória.'
-            flash(error)
         elif not peso:
             error = 'O peso é obrigatório.'
-            flash(error)
         elif not idade:
             error = 'A idade é obrigatória.'
-            flash(error)
 
         if error is None:
             with get_db() as conn:
@@ -68,6 +66,8 @@ def criar():
                         (tutor_id, nome, especie, genero, peso, idade, 
                          castrado))
             return redirect(url_for('pets.lista'))
+        
+        flash(error)
 
     return render_template('pets/criar.html')
 
@@ -88,16 +88,12 @@ def alterar(id):
 
         if not nome:
             error = 'O nome é obrigatório.'
-            flash(error)
         elif not especie:
             error = 'A espécie é obrigatória.'
-            flash(error)
         elif not peso:
             error = 'O peso é obrigatório.'
-            flash(error)
         elif not idade:
             error = 'A idade é obrigatória.'
-            flash(error)
 
         if error is None:
             with get_db() as conn:
@@ -107,6 +103,8 @@ def alterar(id):
                         peso = %s, idade = %s, castrado = %s WHERE id = %s ''',
                         (nome, especie, genero, peso, idade, castrado, pet_id))
             return redirect(url_for('pets.lista'))
+        
+        flash(error)
 
     with get_db() as conn:
         with conn.cursor() as curs:

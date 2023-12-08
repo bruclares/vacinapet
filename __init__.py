@@ -8,10 +8,12 @@ def create_app(test_config=None):
     from .database import db
     db.init_app(app)
 
-    from .controllers import auth
-    app.register_blueprint(auth.bp)
+    from .controllers import (auth, pets, vacinas)
 
-    from .controllers import pets
+    app.register_blueprint(auth.bp)
+    pets.bp.register_blueprint(vacinas.bp)
     app.register_blueprint(pets.bp)
 
     return app
+
+

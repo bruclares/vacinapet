@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}Vacinas do pet{% endblock %}
+
+{% block content %}  
+    <h1 class="mb-5">Vacinas do pet</h1>
+    {% if vacinas %}
+        <nav class="navbar mb-3">
+            <div class="container-fluid px-0" id="navbarSupportedContent">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" name="search" aria-label="Search">
+                    <button class="btn btn-primary" type="submit">Buscar</button>
+                </form>
+                <div class="ms-md-auto mt-3">
+                    <a class="btn btn-primary" aria-current="page" href="{{ url_for('pets.vacinas.incluir', id_pet=pet_id) }}">Nova vacina</a>
+                </div>
+            </div>
+        </nav>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="bg-primary bg-opacity-10">Nome</th>
+                        <th class="bg-primary bg-opacity-10">Lote</th>
+                        <th class="bg-primary bg-opacity-10">Data aplicação</th>
+                        <th class="bg-primary bg-opacity-10">Data reforço</th>
+                        <th class="bg-primary bg-opacity-10">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if vacinas is not string %}
+                        {% for vacina in vacinas %}     
+                            <tr>
+                                <td>{{ vacina[2] }}</td>
+                                <td>{{ vacina[5] }}</td>
+                                <td>{{ vacina[3].strftime('%d/%m/%Y') }}</td>
+                                <td>{{ vacina[4].strftime('%d/%m/%Y') }}</td>
+                                <td>
+                                    <div class="dropdown position-absolute">
+                                        <button class="btn btn-sm fw-bold" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            . . .
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            {# os ids estão nas funções lista e alterar respectivamente #}
+                                            {# verificar a rota já estabelecida no controller(função) -> /<id_pet>/vacinas/<id_vacina>/alterar #}
+                                            {# precisa dar o que a rota da função pede #}
+                                        <li><a class="dropdown-item" href="{{ url_for('pets.vacinas.alterar', id_pet=pet_id, id_vacina=vacina[0]) }}" role="button">Editar</a>                                      </li>
+                                        <li><a class="dropdown-item" href="{{ url_for('pets.vacinas.excluir', id_pet=pet_id, id_vacina=vacina[0]) }}" role="button">Excluir</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="5" class="text-start text-md-center py-3">
+                                {{ vacinas }}
+                            </td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <p class="text-center fs-5">
+            Seu pet não tem vacinas cadastradas. <br> 
+            Comece a cadastrar as vacinas <a class="fw-bold" href="{{ url_for('pets.vacinas.incluir', id_pet=pet_id) }}">aqui</a>
+        </p>
+    {% endif %}
+{% endblock %}

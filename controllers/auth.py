@@ -79,6 +79,9 @@ def login():
             return redirect(url_for('pets.lista'))
 
         flash(error)
+    
+    if 'tutor_id' in session:
+        return redirect(url_for('pets.lista'))
 
     return render_template('auth/login.html')
 
