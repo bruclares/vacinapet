@@ -130,3 +130,4 @@ def excluir(id_pet, id_vacina):
                 (id_vacina,)
             )
     return redirect(url_for('pets.vacinas.lista', id_pet=id_pet))
+

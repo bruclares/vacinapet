@@ -37,7 +37,7 @@ def register():
                              generate_password_hash(senha))
                         )
             except psycopg2.IntegrityError:
-                error = f"Usuário {nome} não está cadastrado."
+                error = f"Usuário {nome} já está cadastrado."
             else:
                 return redirect(url_for("auth.login"))
 
@@ -117,4 +117,3 @@ def login_required(view):
 def logout():
     session.clear()
     return redirect(url_for('auth.login'))
-    
